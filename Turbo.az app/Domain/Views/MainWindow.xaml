@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Turbo.az_app"
+        xmlns:local="clr-namespace:Turbo.az_app" xmlns:ie="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen" >
+        WindowStartupLocation="CenterScreen" 
+        >
     <Canvas>
         <StackPanel Orientation="Horizontal" Width="800" Height="70" Background="Red">
             <Label Foreground="white" FontWeight="bold" Margin="20" FontSize="15">TURBO.AZ</Label>
@@ -15,5 +16,18 @@
             <Label Foreground="white" Margin="20">Ehtiyat hisseleri ve aksesuarlar</Label>
             <Button Background="LimeGreen" Width="80" Height="40" Foreground="White" Margin="100,0,0,0" Style="{StaticResource MyButtonStyle1}">Yeni elan</Button>
         </StackPanel>
+        <Canvas Canvas.Top="70" Width="800" Height="140">
+            <Label FontSize="18" Foreground="gray" Canvas.Left="30">Vendor</Label>
+            <ComboBox Width="130" Height="40" Canvas.Left="30" Canvas.Top="30" SelectedIndex="0"
+                ItemsSource="{Binding Vendors, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Style="{Binding comboBoxItemStyle2}">
+                <ie:Interaction.Triggers>
+                    <ie:EventTrigger EventName="SelectionChanged">
+                        <ie:InvokeCommandAction Command="{Binding SelectedVendorCommand}"  CommandParameter="{Binding ElementName=vendorsCBox, Path=SelectedItem}"/>
+                    </ie:EventTrigger>
+                </ie:Interaction.Triggers>
+            </ComboBox>
+        </Canvas>
     </Canvas>
 </Window>
+                   
