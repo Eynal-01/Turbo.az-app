@@ -13,7 +13,7 @@ namespace Turbo.az_app.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202306181416047_Init"; }
+            get { return "202306181431122_Init"; }
         }
         
         string IMigrationMetadata.Source

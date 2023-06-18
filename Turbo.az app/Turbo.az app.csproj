@@ -96,15 +96,17 @@
     <Compile Include="DataAccess\Abstractions\IRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IStatusRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IUnitOfWork.cs" />
-    <Compile Include="DataAccess\Concrete\BodyTypeRepository.cs" />
-    <Compile Include="DataAccess\Concrete\BrandRepository.cs" />
-    <Compile Include="DataAccess\Concrete\CarRepository.cs" />
-    <Compile Include="DataAccess\Concrete\CityRepository.cs" />
-    <Compile Include="DataAccess\Concrete\ColorRepository.cs" />
-    <Compile Include="DataAccess\Concrete\ModelRepository.cs" />
-    <Compile Include="DataAccess\Concrete\StatusRepository.cs" />
+    <Compile Include="DataAccess\Concrete\EFBodyTypeRepository.cs" />
+    <Compile Include="DataAccess\Concrete\EFBrandRepository.cs" />
+    <Compile Include="DataAccess\Concrete\EFCarRepository.cs" />
+    <Compile Include="DataAccess\Concrete\EFCityRepository.cs" />
+    <Compile Include="DataAccess\Concrete\EFColorRepository.cs" />
+    <Compile Include="DataAccess\Concrete\EFModelRepository.cs" />
+    <Compile Include="DataAccess\Concrete\EFStatusRepository.cs" />
     <Compile Include="DataAccess\Concrete\UnitOfWork.cs" />
     <Compile Include="DataAccess\TurboAzContext.cs" />
+    <Compile Include="Domain\ViewModel\BaseViewModel.cs" />
+    <Compile Include="Domain\ViewModel\MainWindowViewModel.cs" />
     <Compile Include="Domain\Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -125,9 +127,9 @@
     <Compile Include="Entities\Mapping\StatusMap.cs" />
     <Compile Include="Entities\Model.cs" />
     <Compile Include="Entities\Status.cs" />
-    <Compile Include="Migrations\202306181416047_Init.cs" />
-    <Compile Include="Migrations\202306181416047_Init.designer.cs">
-      <DependentUpon>202306181416047_Init.cs</DependentUpon>
+    <Compile Include="Migrations\202306181431122_Init.cs" />
+    <Compile Include="Migrations\202306181431122_Init.designer.cs">
+      <DependentUpon>202306181431122_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -143,8 +145,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202306181416047_Init.resx">
-      <DependentUpon>202306181416047_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306181431122_Init.resx">
+      <DependentUpon>202306181431122_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -164,7 +166,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="Domain\ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

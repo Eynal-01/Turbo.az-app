@@ -12,7 +12,7 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        BodyTypeName = c.String(),
+                        BodyTypeName = c.String(nullable: false, maxLength: 30),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -29,6 +29,7 @@
                         Kilometer = c.Single(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         ProdYear = c.DateTime(nullable: false),
+                        ImagePath = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.BodyTypes", t => t.BodyTypeId, cascadeDelete: true)
@@ -47,7 +48,7 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        CityName = c.String(),
+                        CityName = c.String(nullable: false, maxLength: 30),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -56,7 +57,7 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        ColorName = c.String(),
+                        ColorName = c.String(nullable: false, maxLength: 30),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -65,7 +66,7 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        ModelName = c.String(),
+                        ModelName = c.String(nullable: false, maxLength: 30),
                         BrandId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
@@ -77,7 +78,7 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        BrandName = c.String(),
+                        BrandName = c.String(nullable: false, maxLength: 30),
                     })
                 .PrimaryKey(t => t.Id);
             

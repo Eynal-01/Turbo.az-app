@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turbo.az_app" 
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen" 
-        >
+        WindowStartupLocation="CenterScreen" >
     <Canvas>
         <StackPanel Orientation="Horizontal" Width="800" Height="70" Background="Red">
             <Label Foreground="white" FontWeight="bold" Margin="20" FontSize="15">TURBO.AZ</Label>
@@ -21,9 +21,11 @@
             <ComboBox Width="130" Height="40" Canvas.Left="30" Canvas.Top="30" SelectedIndex="0"
                 ItemsSource="{Binding Vendors, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 Style="{Binding comboBoxItemStyle2}">
-                <!--<i:Interactions.Triggers>
-                    
-                </i:Interactions.Triggers>-->
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding CitySelectionChanged}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
             </ComboBox>
         </Canvas>
     </Canvas>

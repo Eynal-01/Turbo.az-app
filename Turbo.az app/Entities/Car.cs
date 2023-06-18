@@ -17,6 +17,7 @@ namespace Turbo.az_app.Entities.Mapping
         public float Kilometer { get; set; }
         public decimal Price { get; set; }
         public DateTime ProdYear { get; set; }
+        public string ImagePath { get; set; }
 
         public virtual Color Color { get; set; }
         public virtual Model Model { get; set; }

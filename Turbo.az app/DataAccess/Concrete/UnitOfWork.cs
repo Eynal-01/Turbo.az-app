@@ -9,18 +9,18 @@ namespace Turbo.az_app.DataAccess.Concrete
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public IBodyTypeRepository bodyTypeRepository => throw new NotImplementedException();
+        public IBodyTypeRepository bodyTypeRepository => new EFBodyTypeRepository();
 
-        public IBrandRepository brandRepository => throw new NotImplementedException();
+        public IBrandRepository brandRepository =>new EFBrandRepository();
 
-        public ICarRepository carRepository => throw new NotImplementedException();
+        public ICarRepository carRepository => new EFCarRepository(); 
 
-        public ICityRepository cityRepository => throw new NotImplementedException();
+        public ICityRepository cityRepository => new EFCityRepository();
 
-        public IColorRepository colorRepository => throw new NotImplementedException();
+        public IColorRepository colorRepository => new EFColorRepository();
 
-        public IModelRepository modelRepository => throw new NotImplementedException();
+        public IModelRepository modelRepository =>new EFModelRepository();
 
-        public IStatusRepository statusRepository => throw new NotImplementedException();
+        public IStatusRepository statusRepository =>new EFStatusRepository();
     }
 }

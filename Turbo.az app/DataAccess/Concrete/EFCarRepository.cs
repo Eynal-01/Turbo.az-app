@@ -8,29 +8,31 @@ using Turbo.az_app.Entities.Mapping;
 
 namespace Turbo.az_app.DataAccess.Concrete
 {
-    public class BodyTypeRepository : IBodyTypeRepository
+    public class EFCarRepository : ICarRepository
     {
-        public void AddData(BodyType data)
+        TurboAzContext _context = new TurboAzContext();
+        public void AddData(Car data)
+        {
+            _context.Cars.Add(data);
+            _context.SaveChanges();
+        }
+
+        public void DeleteData(Car data)
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteData(BodyType data)
+        public ICollection<Car> GetAll()
+        {
+            return _context.Cars.ToList();
+        }
+
+        public Car GetData(int id)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<BodyType> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public BodyType GetData(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateData(BodyType data)
+        public void UpdateData(Car data)
         {
             throw new NotImplementedException();
         }

@@ -8,11 +8,13 @@ using Turbo.az_app.Entities.Mapping;
 
 namespace Turbo.az_app.DataAccess.Concrete
 {
-    public class StatusRepository : IStatusRepository
+    public class EFStatusRepository : IStatusRepository
     {
+        TurboAzContext _context =new TurboAzContext();
         public void AddData(Status data)
         {
-            throw new NotImplementedException();
+            _context.Statuses.Add(data);
+            _context.SaveChanges();
         }
 
         public void DeleteData(Status data)
@@ -22,7 +24,7 @@ namespace Turbo.az_app.DataAccess.Concrete
 
         public ICollection<Status> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Statuses.ToList();
         }
 
         public Status GetData(int id)
