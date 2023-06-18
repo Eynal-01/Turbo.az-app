@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Turbo.az_app" xmlns:ie="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:Turbo.az_app" 
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         WindowStartupLocation="CenterScreen" 
@@ -21,11 +21,9 @@
             <ComboBox Width="130" Height="40" Canvas.Left="30" Canvas.Top="30" SelectedIndex="0"
                 ItemsSource="{Binding Vendors, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                 Style="{Binding comboBoxItemStyle2}">
-                <ie:Interaction.Triggers>
-                    <ie:EventTrigger EventName="SelectionChanged">
-                        <ie:InvokeCommandAction Command="{Binding SelectedVendorCommand}"  CommandParameter="{Binding ElementName=vendorsCBox, Path=SelectedItem}"/>
-                    </ie:EventTrigger>
-                </ie:Interaction.Triggers>
+                <!--<i:Interactions.Triggers>
+                    
+                </i:Interactions.Triggers>-->
             </ComboBox>
         </Canvas>
     </Canvas>

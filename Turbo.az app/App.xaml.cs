@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Turbo.az_app.DataAccess.Abstractions;
+using Turbo.az_app.DataAccess.Concrete;
 
 namespace Turbo.az_app
 {
@@ -13,5 +15,20 @@ namespace Turbo.az_app
     /// </summary>
     public partial class App : Application
     {
+        public static IUnitOfWork DB;
+        public App()
+        {
+            DB = new UnitOfWork();
+
+
+
+
+
+
+
+
+
+
+        }
     }
 }
