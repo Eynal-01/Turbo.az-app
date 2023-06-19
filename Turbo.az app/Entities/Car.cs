@@ -18,11 +18,13 @@ namespace Turbo.az_app.Entities.Mapping
         public decimal Price { get; set; }
         public DateTime ProdYear { get; set; }
         public string ImagePath { get; set; }
+        public int FuelTypeId { get; set; }
 
         public virtual Color Color { get; set; }
         public virtual Model Model { get; set; }
         public virtual Status Status { get; set; } 
         public virtual BodyType BodyType { get; set; } 
         public virtual City City { get; set; }
+        public virtual FuelType FuelType { get; set; }      
     }
 }
