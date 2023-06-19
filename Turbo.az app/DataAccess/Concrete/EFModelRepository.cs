@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Turbo.az_app.DataAccess.Abstractions;
+using Turbo.az_app.Entities;
 using Turbo.az_app.Entities.Mapping;
 
 namespace Turbo.az_app.DataAccess.Concrete
@@ -22,9 +24,11 @@ namespace Turbo.az_app.DataAccess.Concrete
             throw new NotImplementedException();
         }
 
-        public ICollection<Model> GetAll()
+        public ObservableCollection<Model> GetAll()
         {
-            return _context.Models.ToList();
+            var result = from m in _context.Models
+                         select m;
+            return new ObservableCollection<Model>(result);
         }
 
         public Model GetData(int id)

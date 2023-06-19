@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using Turbo.az_app.DataAccess.Abstractions;
 using Turbo.az_app.Entities.Mapping;
 
@@ -22,9 +24,11 @@ namespace Turbo.az_app.DataAccess.Concrete
             throw new NotImplementedException();
         }
 
-        public ICollection<City> GetAll()
+        public ObservableCollection<City> GetAll()
         {
-            return _context.Cities.ToList();
+            var result = from c in _context.Cities
+                         select c;
+            return new ObservableCollection<City>(result);
         }
 
         public City GetData(int id)

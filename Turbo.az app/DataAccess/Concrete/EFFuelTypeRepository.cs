@@ -14,7 +14,8 @@ namespace Turbo.az_app.DataAccess.Concrete
         TurboAzContext _context = new TurboAzContext();
         public void AddData(FuelType data)
         {
-            throw new NotImplementedException();
+            _context.FuelTypes.Add(data);
+            _context.SaveChanges();
         }
 
         public void DeleteData(FuelType data)
@@ -24,7 +25,9 @@ namespace Turbo.az_app.DataAccess.Concrete
 
         public ObservableCollection<FuelType> GetAll()
         {
-            return _context.FuelTypes;
+            var result = from ft in _context.FuelTypes
+                         select ft;
+            return new ObservableCollection<FuelType>(result);
         }
 
         public FuelType GetData(int id)
@@ -33,6 +36,11 @@ namespace Turbo.az_app.DataAccess.Concrete
         }
 
         public void UpdateData(FuelType data)
+        {
+            throw new NotImplementedException();
+        }
+
+        ICollection<FuelType> IRepository<FuelType>.GetAll()
         {
             throw new NotImplementedException();
         }

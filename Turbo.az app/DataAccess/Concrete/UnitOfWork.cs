@@ -11,16 +11,19 @@ namespace Turbo.az_app.DataAccess.Concrete
     {
         public IBodyTypeRepository bodyTypeRepository => new EFBodyTypeRepository();
 
-        public IBrandRepository brandRepository =>new EFBrandRepository();
+        public IBrandRepository brandRepository => new EFBrandRepository();
 
-        public ICarRepository carRepository => new EFCarRepository(); 
+        public ICarRepository carRepository => new EFCarRepository();
 
         public ICityRepository cityRepository => new EFCityRepository();
 
         public IColorRepository colorRepository => new EFColorRepository();
 
-        public IModelRepository modelRepository =>new EFModelRepository();
+        public IModelRepository modelRepository => new EFModelRepository();
 
-        public IStatusRepository statusRepository =>new EFStatusRepository();
+        public IStatusRepository statusRepository => new EFStatusRepository();
+
+        public IFuelTypeRepository fuelTypeRepository => new EFFuelTypeRepository();
+
     }
 }

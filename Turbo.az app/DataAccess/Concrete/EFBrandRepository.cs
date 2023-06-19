@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -24,9 +25,11 @@ namespace Turbo.az_app.DataAccess.Concrete
             throw new NotImplementedException();
         }
 
-        public ICollection<Brand> GetAll()
+        public ObservableCollection<Brand> GetAll()
         {
-            return _context.Brands.ToList();
+            var result = from b in _context.Brands
+                         select b;
+            return new ObservableCollection<Brand>(result);
         }
 
         public Brand GetData(int id)

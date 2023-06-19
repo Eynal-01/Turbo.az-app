@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,9 +23,11 @@ namespace Turbo.az_app.DataAccess.Concrete
             throw new NotImplementedException();
         }
 
-        public ICollection<BodyType> GetAll()
+        public ObservableCollection<BodyType> GetAll()
         {
-            return _context.BodyTypes.ToList();
+            var result = from bt in _context.BodyTypes  
+                         select bt;
+            return new ObservableCollection<BodyType>(result);
         }
 
         public BodyType GetData(int id)

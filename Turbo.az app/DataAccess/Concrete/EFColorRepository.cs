@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,9 +24,11 @@ namespace Turbo.az_app.DataAccess.Concrete
             throw new NotImplementedException();
         }
 
-        public ICollection<Entities.Mapping.Color> GetAll()
+        public ObservableCollection<Entities.Mapping.Color> GetAll()
         {
-            return _context.Colors.ToList();
+            var result = from c in _context.Colors
+                         select c;
+            return new ObservableCollection<Entities.Mapping.Color>(result);
         }
 
         public Entities.Mapping.Color GetData(int id)
