@@ -39,10 +39,5 @@ namespace Turbo.az_app.DataAccess.Concrete
         {
             throw new NotImplementedException();
         }
-
-        ICollection<FuelType> IRepository<FuelType>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
