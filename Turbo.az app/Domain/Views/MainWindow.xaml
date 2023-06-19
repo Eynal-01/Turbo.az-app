@@ -8,28 +8,47 @@
         Title="MainWindow" Height="500" Width="900"
         WindowStartupLocation="CenterScreen" >
     <Canvas>
-        <StackPanel Orientation="Horizontal" Width="900" Height="70" Background="Red">
+        <StackPanel Orientation="Horizontal" Width="900" Height="70" Background="DarkOrange">
             <Label Foreground="white" FontWeight="bold" Margin="20" FontSize="15">AUTO WORLD</Label>
             <Label Foreground="white" Margin="20">All announcement</Label>
             <Label Foreground="white" Margin="20">Auto salon</Label>
             <Label Foreground="white" Margin="20">Accessories and Spare parts</Label>
-            <Button Background="LimeGreen" Width="80" Height="40" Foreground="White" Margin="200,0,0,0" Style="{StaticResource MyButtonStyle1}">Yeni elan</Button>
+            <Button Background="LimeGreen" Width="80" Height="40" Foreground="White" Margin="200,0,0,0" Style="{StaticResource MyButtonStyle1}">Add Car</Button>
         </StackPanel>
-        <Canvas Canvas.Top="70" Width="800" Height="140">
-            <Label FontSize="18" Foreground="gray" Canvas.Left="30">Vendor</Label>
-            <ComboBox Width="130" Height="40" Canvas.Left="30" Canvas.Top="30" SelectedIndex="0" SelectedItem="{Binding SelectedBrand}"
-                ItemsSource="{Binding Brands, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+        <Canvas Canvas.Top="70" Width="900" Height="180">
+            <Label FontSize="18" Foreground="gray" Canvas.Left="40" >Brand</Label>
+            <ComboBox Width="170" Height="40" Canvas.Left="40" Canvas.Top="30" SelectedIndex="0" SelectedItem="{Binding SelectedBrand}"
+                ItemsSource="{Binding Brands, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="BrandName">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
-                        <i:InvokeCommandAction Command="{Binding VendorSelectionChanged}"></i:InvokeCommandAction>
+                        <i:InvokeCommandAction Command="{Binding BrandSelectionChangedCommand}"></i:InvokeCommandAction>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ComboBox>
-            <ComboBox Width="130" Height="40" Canvas.Left="30" Canvas.Top="30" SelectedIndex="0" SelectedItem="{Binding SelectedModel}"
-                ItemsSource="{Binding Models, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <Label FontSize="18" Foreground="gray" Canvas.Left="260" >Model</Label>
+            <ComboBox Width="170" Height="40" Canvas.Left="260" Canvas.Top="30" SelectedIndex="0" SelectedItem="{Binding SelectedModel}"
+                ItemsSource="{Binding Models, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="ModelName" IsEnabled="{Binding BrandSelected}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
-                        <i:InvokeCommandAction Command="{Binding ModelSelectionChanged}"></i:InvokeCommandAction>
+                        <i:InvokeCommandAction Command="{Binding ModelSelectionChangedCommand}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+            <Label FontSize="18" Foreground="gray" Canvas.Left="690" >City</Label>
+            <ComboBox Width="170" Height="40" Canvas.Right="40" Canvas.Top="30" SelectedIndex="0" SelectedItem="{Binding SelectedCity}"
+                ItemsSource="{Binding Cities, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="CityName">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding CitySelectionChangedCommand}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+            <Label FontSize="18" Foreground="gray" Canvas.Right="250" Canvas.Left="470" Canvas.Top="76">Ban Type</Label>
+            <ComboBox Width="170" Height="40" Canvas.Right="260" Canvas.Bottom="30" SelectedIndex="0" SelectedItem="{Binding SelectedBanType}"
+                ItemsSource="{Binding BanTypes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="CityName">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction Command="{Binding BanTypeSelectionChangedCommand}"></i:InvokeCommandAction>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ComboBox>
