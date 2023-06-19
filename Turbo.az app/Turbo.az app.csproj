@@ -92,6 +92,7 @@
     <Compile Include="DataAccess\Abstractions\ICarRepository.cs" />
     <Compile Include="DataAccess\Abstractions\ICityRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IColorRepository.cs" />
+    <Compile Include="DataAccess\Abstractions\IFuelTypeRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IModelRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IRepository.cs" />
     <Compile Include="DataAccess\Abstractions\IStatusRepository.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="DataAccess\Concrete\EFCarRepository.cs" />
     <Compile Include="DataAccess\Concrete\EFCityRepository.cs" />
     <Compile Include="DataAccess\Concrete\EFColorRepository.cs" />
+    <Compile Include="DataAccess\Concrete\EFFuelTypeRepository.cs" />
     <Compile Include="DataAccess\Concrete\EFModelRepository.cs" />
     <Compile Include="DataAccess\Concrete\EFStatusRepository.cs" />
     <Compile Include="DataAccess\Concrete\UnitOfWork.cs" />

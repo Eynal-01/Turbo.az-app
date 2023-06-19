@@ -59,6 +59,8 @@ namespace Turbo.az_app
             DB.statusRepository.AddData(new Status { IsNew = true });
             DB.statusRepository.AddData(new Status { IsNew = true });
 
+            DB.
+
             //DB.carRepository.AddData(new Car
             //{
             //      ModelId=1,
