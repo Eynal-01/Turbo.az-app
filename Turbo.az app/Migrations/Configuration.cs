@@ -10,7 +10,6 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Turbo.az_app.DataAccess.TurboAzContext";
         }
 
         protected override void Seed(Turbo.az_app.DataAccess.TurboAzContext context)

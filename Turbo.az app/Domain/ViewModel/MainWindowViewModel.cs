@@ -16,7 +16,7 @@ namespace Turbo.az_app.Domain.ViewModel
     public class MainWindowViewModel : BaseViewModel
     {
 
-        public RelayCommand VendorSelectionChangedCommand { get; set; }
+        public RelayCommand BrandSelectionChangedCommand { get; set; }
         public RelayCommand ModelSelectionChangedCommand { get; set; }
         public RelayCommand CitySelectionChangedCommand { get; set; }
         public RelayCommand BanTypeSelectionChangedCommand { get; set; }
@@ -67,7 +67,7 @@ namespace Turbo.az_app.Domain.ViewModel
         public ObservableCollection<Model> Models
         {
             get { return models; }
-            set { models = value; }
+            set { models = value; OnPropertyChanged(); }
         }
 
         private ObservableCollection<City> cities;
@@ -188,7 +188,7 @@ namespace Turbo.az_app.Domain.ViewModel
             Cars = new ObservableCollection<Car>(App.DB.carRepository.GetAll());
             CallCarUC(cars.ToList());
 
-            VendorSelectionChangedCommand = new RelayCommand((obj) =>
+            BrandSelectionChangedCommand = new RelayCommand((obj) =>
             {
                 var id = SelectedBrand.Id;
                 Models = new ObservableCollection<Model>(App.DB.modelRepository.GetAllId(id));
