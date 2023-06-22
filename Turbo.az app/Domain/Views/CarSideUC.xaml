@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Turbo.az_app.Domain.Views.CarSideUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Turbo.az_app.Domain.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="630" d:DesignWidth="900">
+    <Canvas Background="white">
+        <Image Source="{Binding ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="250" Canvas.Top="20" Width="400" Height="400"></Image>
+        <Label Canvas.Left="30" Canvas.Top="450" FontSize="20">Brand</Label>
+        <TextBlock Text="{Binding CarBrand}" FontSize="20" Canvas.Left="120" Canvas.Top="450"></TextBlock>
+        <Label Canvas.Left="30" Canvas.Top="500" FontSize="20">Model</Label>
+        <TextBlock Text="{Binding CarModel}" FontSize="20" Canvas.Left="120" Canvas.Top="500"></TextBlock>
+        <Label Canvas.Left="300" Canvas.Top="450" FontSize="20">Engine</Label>
+        <TextBlock Text="{Binding CarEngine}" FontSize="20" Canvas.Left="390" Canvas.Top="450"></TextBlock>
+        <Label Canvas.Left="300" Canvas.Top="500" FontSize="20">Color</Label>
+        <TextBlock Text="{Binding CarColor}" FontSize="20" Canvas.Left="390" Canvas.Top="500"></TextBlock>
+        <Label Canvas.Left="570" Canvas.Top="450" FontSize="20">City</Label>
+        <TextBlock Text="{Binding CityOfCar}" FontSize="20" Canvas.Left="660" Canvas.Top="450"></TextBlock>
+        <Label Canvas.Left="570" Canvas.Top="500" FontSize="20">Year</Label>
+        <TextBlock Text="{Binding CarYear}" FontSize="20" Canvas.Left="660" Canvas.Top="500"></TextBlock>
+        <Label Canvas.Left="30" Canvas.Top="560" FontSize="20">Price</Label>
+        <TextBlock Text="{Binding CarPrice}" FontSize="20" Canvas.Left="120" Canvas.Top="560"></TextBlock>
+        <Button Command="{Binding BackCommand}" Foreground="white" Background="DarkOrange" FontSize="20" Width="150" Height="50" Canvas.Right="20" Canvas.Bottom="20">Back</Button>
+    </Canvas>
+</UserControl>

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Turbo.az_app.Domain.Views
 {
     /// <summary>
-    /// Interaction logic for CarUserControl.xaml
+    /// Interaction logic for CarInfoUC.xaml
     /// </summary>
-    public partial class CarUserControl : UserControl
+    public partial class CarSideUC : UserControl
     {
-        public CarUserControl()
+        public CarSideUC()
         {
             InitializeComponent();
         }

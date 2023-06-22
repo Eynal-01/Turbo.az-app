@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="Turbo.az_app.Domain.Views.CarUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Turbo.az_app.Domain.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="330" d:DesignWidth="280">
+    <Canvas>
+        <Border CornerRadius="13" Width="280" Height="320" Background="white"></Border>
+
+        <Button Command="{Binding SelectedCarCommand}" Background="Transparent" Width="280" Height="320" Foreground="white"></Button>
+        <Image Source="{Binding CarImagePath}" Height="160" Width="280"></Image>
+        <Label Content="{Binding CarPrice}" Canvas.Top="180" Canvas.Left="20" FontSize="20"></Label>
+        <Label Content="{Binding CarName}" Canvas.Top="220" Canvas.Left="20" FontSize="20"></Label>
+        <Label Content="{Binding CarKmYearEngine}" Canvas.Top="260" Canvas.Left="20" FontSize="20"></Label>
+    </Canvas>
+</UserControl>

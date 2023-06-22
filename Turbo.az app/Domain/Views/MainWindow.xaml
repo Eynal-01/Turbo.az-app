@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turbo.az_app" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="900"
+        Title="MainWindow" Height="700" Width="900"
         WindowStartupLocation="CenterScreen" >
     <Canvas>
         <StackPanel Orientation="Horizontal" Width="900" Height="70" Background="DarkOrange">
@@ -43,6 +43,14 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ComboBox>
+            <Label FontSize="18" Foreground="gray" Canvas.Left="40" Canvas.Top="76">Min price</Label>
+            <TextBox Text="{Binding MinPrice}" Height="40" Width="85" Canvas.Left="40" Canvas.Bottom="30" TextAlignment="Center" FontSize="20"></TextBox>
+            <Label FontSize="18" Foreground="gray" Canvas.Left="125" Canvas.Top="76">Max price</Label>
+            <TextBox Text="{Binding MaxPrice}" Height="40" Width="85" Canvas.Left="125" Canvas.Bottom="30" TextAlignment="Center" FontSize="20"></TextBox>
+            <Label Foreground="gray" FontSize="18" Canvas.Left="260" Canvas.Top="76">Min year</Label>
+            <TextBox Text="{Binding MinYear}" Width="85" Height="40" Canvas.Left="260" Canvas.Bottom="30" TextAlignment="Center" FontSize="20"></TextBox>
+            <Label Foreground="gray" FontSize="18" Canvas.Left="345" Canvas.Top="76">Max year</Label>
+            <TextBox Text="{Binding MaxYear}" Width="85" Height="40" Canvas.Left="345" Canvas.Bottom="30" TextAlignment="Center" FontSize="20"></TextBox>
             <Label FontSize="18" Foreground="gray" Canvas.Right="250" Canvas.Left="470" Canvas.Top="76">Ban Type</Label>
             <ComboBox Width="170" Height="40" Canvas.Right="260" Canvas.Bottom="30" SelectedIndex="0" SelectedItem="{Binding SelectedBanType}"
                 ItemsSource="{Binding BanTypes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="CityName">
@@ -52,7 +60,10 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ComboBox>
+            <Button Command="{Binding ShowCommand}" Padding="0,0,0,4" Background="DarkOrange" Canvas.Bottom="30" Canvas.Right="40" Width="170" Height="40" FontSize="20" Foreground="White">Show cars</Button>
         </Canvas>
+        <ScrollViewer Background="WhiteSmoke" Canvas.Top="250" Width="900" Height="500">
+            <WrapPanel Name="CarsWrapPanel"></WrapPanel>
+        </ScrollViewer>
     </Canvas>
 </Window>
-                   

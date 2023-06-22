@@ -31,6 +31,11 @@ namespace Turbo.az_app.DataAccess.Concrete
             return new ObservableCollection<Model>(result);
         }
 
+        public ICollection<Model> GetAllId(int id)
+        {
+            return _context.Models.Where(m => m.BrandId == id).ToList();
+        }
+
         public Model GetData(int id)
         {
             throw new NotImplementedException();
