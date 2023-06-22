@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Turbo.az_app" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        Title="MainWindow" Height="700" Width="900"
+        Title="Auto World" Height="700" Width="900"
         WindowStartupLocation="CenterScreen" >
     <Canvas>
         <StackPanel Orientation="Horizontal" Width="900" Height="70" Background="DarkOrange">
@@ -15,9 +15,9 @@
             <Label Foreground="white" Margin="20">Accessories and Spare parts</Label>
             <Button Background="LimeGreen" Width="80" Height="40" Foreground="White" Margin="200,0,0,0" Style="{StaticResource MyButtonStyle1}">Add Car</Button>
         </StackPanel>
-        <Canvas Canvas.Top="70" Width="900" Height="180">
+        <Canvas Canvas.Top="70" Width="900" Height="180" Background="WhiteSmoke">
             <Label FontSize="18" Foreground="gray" Canvas.Left="40" >Brand</Label>
-            <ComboBox Width="170" Height="40" Canvas.Left="40" Canvas.Top="30" SelectedIndex="0" SelectedItem="{Binding SelectedBrand}"
+            <ComboBox Width="170" Height="40" Canvas.Left="40" Canvas.Top="30" SelectedItem="{Binding SelectedBrand}"
                 ItemsSource="{Binding Brands, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="BrandName">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
@@ -26,7 +26,7 @@
                 </i:Interaction.Triggers>
             </ComboBox>
             <Label FontSize="18" Foreground="gray" Canvas.Left="260" >Model</Label>
-            <ComboBox Width="170" Height="40" Canvas.Left="260" Canvas.Top="30" SelectedIndex="0" SelectedItem="{Binding SelectedModel}"
+            <ComboBox Width="170" Height="40" Canvas.Left="260" Canvas.Top="30" SelectedItem="{Binding SelectedModel}"
                 ItemsSource="{Binding Models, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="ModelName" IsEnabled="{Binding BrandSelected}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
@@ -35,7 +35,7 @@
                 </i:Interaction.Triggers>
             </ComboBox>
             <Label FontSize="18" Foreground="gray" Canvas.Left="690" >City</Label>
-            <ComboBox Width="170" Height="40" Canvas.Right="40" Canvas.Top="30" SelectedIndex="0" SelectedItem="{Binding SelectedCity}"
+            <ComboBox Width="170" Height="40" Canvas.Right="40" Canvas.Top="30" SelectedItem="{Binding SelectedCity}"
                 ItemsSource="{Binding Cities, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="CityName">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
@@ -51,8 +51,8 @@
             <TextBox Text="{Binding MinYear}" Width="85" Height="40" Canvas.Left="260" Canvas.Bottom="30" TextAlignment="Center" FontSize="20"></TextBox>
             <Label Foreground="gray" FontSize="18" Canvas.Left="345" Canvas.Top="76">Max year</Label>
             <TextBox Text="{Binding MaxYear}" Width="85" Height="40" Canvas.Left="345" Canvas.Bottom="30" TextAlignment="Center" FontSize="20"></TextBox>
-            <Label FontSize="18" Foreground="gray" Canvas.Right="250" Canvas.Left="470" Canvas.Top="76">Ban Type</Label>
-            <ComboBox Width="170" Height="40" Canvas.Right="260" Canvas.Bottom="30" SelectedIndex="0" SelectedItem="{Binding SelectedBanType}"
+            <Label FontSize="18" Foreground="gray" Canvas.Left="470">Ban Type</Label>
+            <ComboBox Width="170" Height="40" Canvas.Right="260" Canvas.Top="30" SelectedItem="{Binding SelectedBanType}"
                 ItemsSource="{Binding BanTypes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="CityName">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
@@ -60,7 +60,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ComboBox>
-            <Button Command="{Binding ShowCommand}" Padding="0,0,0,4" Background="DarkOrange" Canvas.Bottom="30" Canvas.Right="40" Width="170" Height="40" FontSize="20" Foreground="White">Show cars</Button>
+            <Button Command="{Binding ShowCommand}" Padding="0,0,0,4" Background="DarkOrange" Canvas.Bottom="30" Canvas.Right="40" Width="170" Height="40" FontSize="20" Foreground="White" Canvas.Left="585" Canvas.Top="110">Show cars</Button>
         </Canvas>
         <ScrollViewer Background="WhiteSmoke" Canvas.Top="250" Width="900" Height="500">
             <WrapPanel Name="CarsWrapPanel"></WrapPanel>

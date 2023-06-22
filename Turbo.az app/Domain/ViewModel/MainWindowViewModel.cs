@@ -160,14 +160,13 @@ namespace Turbo.az_app.Domain.ViewModel
         public bool isAllCar { get; set; } = true;
         public bool isNewCar { get; set; } = false;
 
-        public void CallCarUC(List<Car> cars)
+        public void AddCarUC(List<Car> cars)
         {
             App.CarsWrapPanel.Children.Clear();
-            CarUC carUC;
             CarUCViewModel carUCViewModel;
             for (int i = 0; i < cars.Count; i++)
             {
-                carUC = new CarUC();
+                CarUC carUC = new CarUC();
                 carUCViewModel = new CarUCViewModel();
                 carUCViewModel.SelectedCar = cars[i];
                 carUCViewModel.CarImagePath = cars[i].ImagePath;
@@ -186,7 +185,7 @@ namespace Turbo.az_app.Domain.ViewModel
             Colors = new ObservableCollection<Entities.Mapping.Color>(App.DB.colorRepository.GetAll());
             FuelTypes = new ObservableCollection<FuelType>(App.DB.fuelTypeRepository.GetAll());
             Cars = new ObservableCollection<Car>(App.DB.carRepository.GetAll());
-            CallCarUC(cars.ToList());
+            AddCarUC(cars.ToList());
 
             BrandSelectionChangedCommand = new RelayCommand((obj) =>
             {
@@ -206,26 +205,26 @@ namespace Turbo.az_app.Domain.ViewModel
                 if (!BrandSelected && isNewCar)
                 {
                     var allCars = Cars.Where(c => c.IsNew).ToList();
-                    CallCarUC(allCars);
+                    AddCarUC(allCars);
                 };
                 if (!BrandSelected && !isNewCar)
                 {
                     var allCars = Cars.Where(c => c.IsNew == false).ToList();
-                    CallCarUC(allCars);
+                    AddCarUC(allCars);
                 }
-                if (minPrice != null && minPrice != String.Empty)
+                if (MinPrice != null && MinPrice != String.Empty)
                 {
-                    int price = Convert.ToInt32(minPrice);
+                    int price = Convert.ToInt32(MinPrice);
                     var allcars = Cars.Where((c) => { return c.Price >= price; }).ToList();
                 }
-                if (maxPrice != null && maxPrice != String.Empty)
+                if (MaxPrice != null && MaxPrice != String.Empty)
                 {
                     int price = Convert.ToInt32(maxPrice);
                     var allcars = Cars.Where((c) => { return c.Price <= price; }).ToList();
                 }
                 if (Minkm != null && Minkm != String.Empty)
                 {
-                    int km = Convert.ToInt32(minkm);
+                    int km = Convert.ToInt32(Minkm);
                     var allcars = Cars.Where((c) => { return c.Kilometer >= km; }).ToList();
                 }
                 if (Maxkm != null && Maxkm != String.Empty)
@@ -235,24 +234,23 @@ namespace Turbo.az_app.Domain.ViewModel
                 }
                 if (!ModelSelected && BrandSelected || isAllCar)
                 {
-
                     var allCars = Cars.Where(c => c.Model.BrandId == SelectedBrand.Id).ToList();
-                    CallCarUC(allCars);
+                    AddCarUC(allCars);
                 }
                 if (isNewCar && BrandSelected)
                 {
                     var allCars = Cars.Where(c => c.Model.BrandId == SelectedBrand.Id && c.IsNew == true).ToList();
-                    CallCarUC(allCars);
+                    AddCarUC(allCars);
                 }
                 else if (!isNewCar && !isAllCar && BrandSelected)
                 {
                     var allCars = Cars.Where(c => c.Model.BrandId == SelectedBrand.Id && c.IsNew == false).ToList();
-                    CallCarUC(allCars);
+                    AddCarUC(allCars);
                 }
                 if (ModelSelected)
                 {
                     var allCars = Cars.Where(c => c.ModelId == SelectedModel.Id).ToList();
-                    CallCarUC(allCars);
+                    AddCarUC(allCars);
                 }
             });
         }
