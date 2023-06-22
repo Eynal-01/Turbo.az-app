@@ -15,7 +15,6 @@ namespace Turbo.az_app.Domain.ViewModel
 {
     public class MainWindowViewModel : BaseViewModel
     {
-
         public RelayCommand BrandSelectionChangedCommand { get; set; }
         public RelayCommand ModelSelectionChangedCommand { get; set; }
         public RelayCommand CitySelectionChangedCommand { get; set; }
@@ -110,7 +109,7 @@ namespace Turbo.az_app.Domain.ViewModel
             set { cars = value; OnPropertyChanged(); }
         }
 
-        private bool brandSelected = false;
+        private bool brandSelected;
 
         public bool BrandSelected
         {
@@ -181,17 +180,26 @@ namespace Turbo.az_app.Domain.ViewModel
         public MainWindowViewModel()
         {
             Brands = new ObservableCollection<Brand>(App.DB.brandRepository.GetAll());
+            Models = new ObservableCollection<Model>(App.DB.modelRepository.GetAll());
             BanTypes = new ObservableCollection<BodyType>(App.DB.bodyTypeRepository.GetAll());
             Colors = new ObservableCollection<Entities.Mapping.Color>(App.DB.colorRepository.GetAll());
             FuelTypes = new ObservableCollection<FuelType>(App.DB.fuelTypeRepository.GetAll());
+            Cities = new ObservableCollection<City>(App.DB.cityRepository.GetAll());
             Cars = new ObservableCollection<Car>(App.DB.carRepository.GetAll());
             AddCarUC(cars.ToList());
+            SelectedBrand = new Brand();
+            Model model = new Model();
+            BrandSelected = false;
+            ModelSelected = false;
 
             BrandSelectionChangedCommand = new RelayCommand((obj) =>
             {
                 var id = SelectedBrand.Id;
-                Models = new ObservableCollection<Model>(App.DB.modelRepository.GetAllId(id));
                 BrandSelected = true;
+                if (SelectedBrand.Id == model.BrandId)
+                {
+                    Models = new ObservableCollection<Model>(App.DB.modelRepository.GetAll());
+                }
                 ModelSelected = false;
             });
 

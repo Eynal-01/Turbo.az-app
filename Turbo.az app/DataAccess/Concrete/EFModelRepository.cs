@@ -31,9 +31,9 @@ namespace Turbo.az_app.DataAccess.Concrete
             return new ObservableCollection<Model>(result);
         }
 
-        public ICollection<Model> GetAllId(int id)
+        public IQueryable<Model> GetAllId(int id)
         {
-            return _context.Models.Where(m => m.BrandId == id).ToList();
+            return _context.Models.Where(m => m.BrandId == id);
         }
 
         public Model GetData(int id)

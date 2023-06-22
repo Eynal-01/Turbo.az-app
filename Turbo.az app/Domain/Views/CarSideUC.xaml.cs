@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Turbo.az_app.Domain.ViewModel;
 
 namespace Turbo.az_app.Domain.Views
 {
@@ -23,6 +24,8 @@ namespace Turbo.az_app.Domain.Views
         public CarSideUC()
         {
             InitializeComponent();
+            var vm = new CarSideUCViewModel();
+            this.DataContext = vm;
         }
     }
 }
