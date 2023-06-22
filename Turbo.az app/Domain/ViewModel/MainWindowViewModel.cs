@@ -109,7 +109,7 @@ namespace Turbo.az_app.Domain.ViewModel
             set { cars = value; OnPropertyChanged(); }
         }
 
-        private bool brandSelected;
+        private bool brandSelected = false;
 
         public bool BrandSelected
         {
